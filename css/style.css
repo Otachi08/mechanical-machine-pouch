@@ -1,0 +1,47 @@
+/* 1. Definición de Variables (Tu Paleta de Colores) */
+:root {
+  --primary-color: #2c3e50;    /* Un azul grisáceo mecánico */
+  --accent-color: #e74c3c;     /* Rojo para botones y llamadas a la acción */
+  --bg-light: #f4f7f6;        /* Fondo suave */
+  --text-dark: #333333;
+  --font-main: 'Inter', system-ui, sans-serif;
+}
+
+/* 2. Reset Básico (Para que todo se vea igual en todos los navegadores) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* 3. Estilos de Estructura Semántica */
+header {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
