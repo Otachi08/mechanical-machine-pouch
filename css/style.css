@@ -45,3 +45,22 @@ section {
   max-width: 1200px;
   margin: 0 auto;
 }
+/* Estilos para la cuadrícula de servicios */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+article {
+    background: white;
+    padding: 2rem;
+    border-left: 5px solid var(--accent-color); /* Un detalle visual de "marca" */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+}
