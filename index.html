@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanical Machine Pouch | Soluciones Mecánicas</title>
+    <title>Mechanical Machine Pouch | Soluciones Mecánicas de Alta Precisión</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo2.png">
+    <link rel="apple-touch-icon" href="img/logo2.png">
+    <link rel="shortcut icon" href="img/logo2.png">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Especialistas en mantenimiento preventivo, reparación de maquinaria industrial y consultoría técnica en República Dominicana. Más de 10 años de experiencia en soluciones mecánicas de precisión.">
+    <meta name="keywords" content="mantenimiento industrial, reparación maquinaria, consultoría técnica, mecánica de precisión, mantenimiento preventivo, República Dominicana">
+    <meta name="author" content="Mechanical Machine Pouch">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mechanical Machine Pouch | Soluciones Mecánicas de Alta Precisión">
+    <meta property="og:description" content="Especialistas en mantenimiento preventivo, reparación de maquinaria y consultoría técnica industrial">
+    <meta property="og:image" content="img/logo2.png">
+    <meta property="og:url" content="https://www.mechanicalmachine.com">
+    <meta property="og:site_name" content="Mechanical Machine Pouch">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mechanical Machine Pouch | Soluciones Mecánicas">
+    <meta name="twitter:description" content="Especialistas en mantenimiento, reparación y consultoría técnica industrial">
+    <meta name="twitter:image" content="img/logo2.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,7 +53,7 @@
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#" id="contactoLink">Contacto</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,7 +65,7 @@
             <img src="img/logo2.png" alt="Mechanical Machine Pouch" class="logo-hero">
             <h1>Soluciones Mecánicas de Alta Precisión</h1>
             <p>Especialistas en mantenimiento, reparación y consultoría técnica.</p>
-            <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
+            <button class="btn-primary" id="ctaBtn">Solicitar Cotización</button>
         </section>
 
         <!-- Sección Servicios -->
@@ -51,19 +77,19 @@
                     <div class="service-icon">🔧</div>
                     <h3>Mantenimiento Preventivo</h3>
                     <p>Evita paradas innecesarias con inspecciones técnicas periódicas y planes de mantenimiento personalizados.</p>
-                    <a href="#contacto" class="service-link">Más información →</a>
+                    <button class="service-link service-btn">Más información →</button>
                 </article>
                 <article class="service-card">
                     <div class="service-icon">⚙️</div>
                     <h3>Reparación de Maquinaria</h3>
                     <p>Diagnóstico y solución de fallos mecánicos en tiempo récord con técnicos certificados.</p>
-                    <a href="#contacto" class="service-link">Más información →</a>
+                    <button class="service-link service-btn">Más información →</button>
                 </article>
                 <article class="service-card">
                     <div class="service-icon">📊</div>
                     <h3>Consultoría Técnica</h3>
                     <p>Asesoramiento experto para optimizar tus procesos de producción y reducir costos operativos.</p>
-                    <a href="#contacto" class="service-link">Más información →</a>
+                    <button class="service-link service-btn">Más información →</button>
                 </article>
             </div>
         </section>
@@ -160,105 +186,58 @@
             </div>
         </section>
 
-        <!-- Sección Contacto -->
-        <section id="contacto" class="contact-section">
+        <!-- Información de Contacto (visible en la página) -->
+        <section id="contacto" class="contact-info-section">
             <h2>Contáctanos</h2>
             <p class="section-subtitle">Estamos listos para ayudarte con tus necesidades mecánicas</p>
             
-            <div class="contact-container">
-                <!-- Formulario -->
-                <div class="contact-form">
-                    <h3>Envíanos un Mensaje</h3>
-                    <form id="contactForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo *</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" id="empresa" name="empresa">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telefono">Teléfono *</label>
-                                <input type="tel" id="telefono" name="telefono" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="servicio">Servicio de Interés *</label>
-                            <select id="servicio" name="servicio" required>
-                                <option value="">Selecciona un servicio</option>
-                                <option value="mantenimiento">Mantenimiento Preventivo</option>
-                                <option value="reparacion">Reparación de Maquinaria</option>
-                                <option value="consultoria">Consultoría Técnica</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje *</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto o necesidad..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
-                    </form>
+            <div class="contact-info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h4>Dirección</h4>
+                    <p>Santo Domingo, República Dominicana</p>
                 </div>
                 
-                <!-- Información de Contacto -->
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div>
-                            <h4>Dirección</h4>
-                            <p>Santo Domingo, República Dominicana</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div>
-                            <h4>Teléfono</h4>
-                            <p>+1 (809) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@mechanicalmachine.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">🕐</div>
-                        <div>
-                            <h4>Horario</h4>
-                            <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
-                            <p>Sáb: 8:00 AM - 2:00 PM</p>
-                            <p class="emergency">Emergencias 24/7</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <h4>Síguenos</h4>
-                        <div class="social-icons">
-                            <a href="#" aria-label="Facebook">FB</a>
-                            <a href="#" aria-label="Instagram">IG</a>
-                            <a href="#" aria-label="LinkedIn">IN</a>
-                            <a href="#" aria-label="WhatsApp">WA</a>
-                        </div>
-                    </div>
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <h4>Teléfono</h4>
+                    <p>+1 (809) 123-4567</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p>info@mechanicalmachine.com</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">🕐</div>
+                    <h4>Horario</h4>
+                    <p>Lun - Vie: 8:00 AM - 6:00 PM<br>
+                    Sáb: 8:00 AM - 2:00 PM</p>
+                    <p class="emergency">Emergencias 24/7</p>
+                </div>
+            </div>
+            
+            <div class="social-links-section">
+                <h3>Síguenos en Redes Sociales</h3>
+                <div class="social-icons-large">
+                    <a href="https://facebook.com/TU_USUARIO" target="_blank" aria-label="Facebook">
+                        <span>FB</span>
+                        <p>Facebook</p>
+                    </a>
+                    <a href="https://instagram.com/TU_USUARIO" target="_blank" aria-label="Instagram">
+                        <span>IG</span>
+                        <p>Instagram</p>
+                    </a>
+                    <a href="https://linkedin.com/company/TU_EMPRESA" target="_blank" aria-label="LinkedIn">
+                        <span>IN</span>
+                        <p>LinkedIn</p>
+                    </a>
+                    <a href="https://wa.me/18091234567" target="_blank" aria-label="WhatsApp">
+                        <span>WA</span>
+                        <p>WhatsApp</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -294,7 +273,67 @@
         </div>
     </footer>
 
-    <!-- Script para menú móvil -->
+    <!-- Botón Flotante -->
+    <button class="btn-float" id="openFormBtn" aria-label="Abrir formulario de contacto">
+        📞
+    </button>
+
+    <!-- Modal con Formulario -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            
+            <h3>Envíanos un Mensaje</h3>
+            <p class="modal-subtitle">Estamos listos para ayudarte con tus necesidades mecánicas</p>
+            
+            <!-- Mensaje de éxito/error -->
+            <div id="formMessage" style="display: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;"></div>
+            
+            <form id="contactForm" action="https://formspree.io/f/ae045992-b6ff-4611-9fab-190bf82f4f9c" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servicio">Servicio de Interés *</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="mantenimiento">Mantenimiento Preventivo</option>
+                        <option value="reparacion">Reparación de Maquinaria</option>
+                        <option value="consultoria">Consultoría Técnica</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje *</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto o necesidad..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
         // Menú hamburguesa
         const menuToggle = document.querySelector('.menu-toggle');
@@ -316,20 +355,80 @@
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#contacto') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
         
-        // Validación del formulario
+        // Modal del formulario
+        const openFormBtn = document.getElementById('openFormBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const contactModal = document.getElementById('contactModal');
+        const contactoLink = document.getElementById('contactoLink');
+        const ctaBtn = document.getElementById('ctaBtn');
+        const serviceBtns = document.querySelectorAll('.service-btn');
+        
+        // Función para abrir modal
+        function openModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Función para cerrar modal
+        function closeModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Abrir modal con botón flotante
+        openFormBtn.addEventListener('click', openModal);
+        
+        // Abrir modal con link de contacto en nav
+        contactoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+        
+        // Abrir modal con botón CTA del hero
+        ctaBtn.addEventListener('click', openModal);
+        
+        // Abrir modal con botones de servicios
+        serviceBtns.forEach(btn => {
+            btn.addEventListener('click', openModal);
+        });
+        
+        // Cerrar modal con botón X
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Cerrar modal haciendo click fuera del formulario
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeModal();
+            }
+        });
+        
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Envío del formulario con AJAX
         const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
+        const submitBtn = form.querySelector('.btn-submit');
+        const formMessage = document.getElementById('formMessage');
+        
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Validación básica
@@ -340,16 +439,62 @@
             const mensaje = document.getElementById('mensaje').value.trim();
             
             if (!nombre || !email || !telefono || !servicio || !mensaje) {
-                alert('Por favor completa todos los campos requeridos.');
+                showMessage('Por favor completa todos los campos requeridos.', 'error');
                 return;
             }
             
-            // Si todo está bien, enviar el formulario
-            alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-            form.reset();
+            // Validación de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Por favor ingresa un email válido.', 'error');
+                return;
+            }
             
-            // Aquí puedes agregar la lógica real de envío (AJAX, etc.)
+            // Cambiar estado del botón
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Enviar con AJAX
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                    form.reset();
+                    
+                    // Cerrar modal después de 3 segundos
+                    setTimeout(() => {
+                        closeModal();
+                        formMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error('Error en el envío');
+                }
+            } catch (error) {
+                showMessage('Hubo un problema al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+            } finally {
+                submitBtn.textContent = 'Enviar Mensaje';
+                submitBtn.disabled = false;
+            }
         });
+        
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.style.display = 'block';
+            formMessage.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+            formMessage.style.color = type === 'success' ? '#155724' : '#721c24';
+            formMessage.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+            
+            // Scroll hacia el mensaje
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
     </script>
 
 </body>

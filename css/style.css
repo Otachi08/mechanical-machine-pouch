@@ -56,6 +56,10 @@ img {
   height: auto;
 }
 
+button {
+  font-family: inherit;
+}
+
 /* ===================================
    3. HEADER Y NAVEGACIÓN
    =================================== */
@@ -156,6 +160,7 @@ nav {
   transition: var(--transition);
   position: relative;
   padding: 0.5rem 0;
+  cursor: pointer;
 }
 
 .nav-links a::after {
@@ -245,6 +250,8 @@ nav {
   animation: slideDown 1.2s ease;
   position: relative;
   z-index: 1;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -340,11 +347,15 @@ section h2::after {
   color: var(--accent-color);
   font-weight: 600;
   transition: var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
 }
 
 .service-link:hover {
   color: var(--secondary-color);
-  margin-left: 5px;
 }
 
 /* ===================================
@@ -513,32 +524,241 @@ section h2::after {
 }
 
 /* ===================================
-   9. SECCIÓN CONTACTO
+   9. SECCIÓN CONTACTO (Info visible)
    =================================== */
-.contact-section {
+.contact-info-section {
   background: linear-gradient(135deg, #f9fafb 0%, #e8f5e9 100%);
 }
 
-.contact-container {
+.contact-info-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   margin-top: 3rem;
 }
 
-.contact-form, .contact-info {
+.info-card {
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
-.contact-form h3, .contact-info h3 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+.info-card .info-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
 }
 
+.info-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.info-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-card .emergency {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Redes sociales grandes */
+.social-links-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.social-links-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.social-icons-large {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-icons-large a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.social-icons-large a span {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.social-icons-large a p {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.social-icons-large a:hover span {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(124, 179, 66, 0.4);
+}
+
+/* ===================================
+   10. BOTÓN FLOTANTE
+   =================================== */
+.btn-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 6px 20px rgba(124, 179, 66, 0.5);
+  z-index: 998;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-float:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 10px 30px rgba(124, 179, 66, 0.7);
+}
+
+/* Animación de pulso */
+.btn-float::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent-color);
+  opacity: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ===================================
+   11. MODAL
+   =================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.4s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--gray-medium);
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--gray-light);
+  color: var(--primary-color);
+  transform: rotate(90deg);
+}
+
+.modal-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  padding-right: 50px;
+}
+
+.modal-subtitle {
+  color: var(--gray-medium);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Estilos del formulario en el modal */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -597,89 +817,18 @@ section h2::after {
   letter-spacing: 0.5px;
 }
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(124, 179, 66, 0.4);
 }
 
-/* Información de contacto */
-.info-item {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.info-item:last-of-type {
-  border-bottom: none;
-}
-
-.info-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.5rem;
-}
-
-.info-item h4 {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.info-item p {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
-}
-
-.emergency {
-  color: var(--accent-color);
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
-
-.social-links {
-  margin-top: 2rem;
-}
-
-.social-links h4 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-icons a {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 700;
-  transition: var(--transition);
-}
-
-.social-icons a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(124, 179, 66, 0.4);
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* ===================================
-   10. FOOTER
+   12. FOOTER
    =================================== */
 footer {
   background: linear-gradient(135deg, var(--primary-color) 0%, #1B3A0F 100%);
@@ -740,7 +889,7 @@ footer {
 }
 
 /* ===================================
-   11. ANIMACIONES
+   13. ANIMACIONES
    =================================== */
 @keyframes slideDown {
   from {
@@ -756,26 +905,35 @@ footer {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
 /* ===================================
-   12. RESPONSIVE DESIGN
+   14. RESPONSIVE DESIGN
    =================================== */
 
 /* Tablets */
 @media (max-width: 1024px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-  
   .about-container {
     gap: 3rem;
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
@@ -864,6 +1022,31 @@ footer {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  
+  .modal-content {
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .btn-float {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.7rem;
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-icons-large {
+    gap: 1.5rem;
+  }
 }
 
 /* Small Mobile */
@@ -890,8 +1073,20 @@ footer {
     font-size: 1.7rem;
   }
   
-  .contact-form,
-  .contact-info {
+  .modal-content {
     padding: 1.5rem;
+    max-height: 95vh;
+  }
+  
+  .btn-float {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+  
+  .social-icons-large a span {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
   }
 }
