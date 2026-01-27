@@ -3,53 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanical Machine Pouch | Inicio</title>
+    <title>Mechanical Machine Pouch | Soluciones Mecánicas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- Header con Navegación -->
     <header>
         <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="img/logo2.png" alt="Mechanical Machine Pouch" class="logo-nav">
+                    <span class="brand-name">Mechanical Machine Pouch</span>
+                </div>
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <main>
-    <section id="hero">
-        <h1>Soluciones Mecánicas de Alta Precisión</h1>
-        <p>Especialistas en mantenimiento, reparación y optimización industrial.</p>
-        <div class="cta-container">
-            <a href="#contacto" class="btn-primary">Solicitar Presupuesto</a>
-            <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
-        </div>
-    </section>
+        <!-- Sección Hero -->
+        <section id="inicio" class="hero">
+            <img src="img/logo2.png" alt="Mechanical Machine Pouch" class="logo-hero">
+            <h1>Soluciones Mecánicas de Alta Precisión</h1>
+            <p>Especialistas en mantenimiento, reparación y consultoría técnica.</p>
+            <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
+        </section>
 
-    <section id="servicios">
-        <h2>Servicios Especializados</h2>
-        <div class="servicios-grid">
-            <article>
-                <h3>Mantenimiento Preventivo</h3>
-                <p>Evita paradas innecesarias con inspecciones técnicas periódicas.</p>
-            </article>
-            <article>
-                <h3>Reparación de Maquinaria</h3>
-                <p>Diagnóstico y solución de fallos mecánicos en tiempo récord.</p>
-            </article>
-            <article>
-                <h3>Consultoría Técnica</h3>
-                <p>Asesoramiento experto para optimizar tus procesos de producción.</p>
-            </article>
-        </div>
-    </section>
-</main>
+        <!-- Sección Servicios -->
+        <section id="servicios">
+            <h2>Servicios Especializados</h2>
+            <p class="section-subtitle">Ofrecemos soluciones integrales para mantener tu maquinaria funcionando al máximo rendimiento</p>
+            <div class="servicios-grid">
+                <article class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Mantenimiento Preventivo</h3>
+                    <p>Evita paradas innecesarias con inspecciones técnicas periódicas y planes de mantenimiento personalizados.</p>
+                    <a href="#contacto" class="service-link">Más información →</a>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Reparación de Maquinaria</h3>
+                    <p>Diagnóstico y solución de fallos mecánicos en tiempo récord con técnicos certificados.</p>
+                    <a href="#contacto" class="service-link">Más información →</a>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Consultoría Técnica</h3>
+                    <p>Asesoramiento experto para optimizar tus procesos de producción y reducir costos operativos.</p>
+                    <a href="#contacto" class="service-link">Más información →</a>
+                </article>
+            </div>
+        </section>
 
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>¿Por Qué Elegirnos?</h2>
+                    <p>Con años de experiencia en el sector industrial, nos hemos consolidado como líderes en soluciones mecánicas de precisión.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Años de Experiencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfacción del Cliente</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <h4>Técnicos Certificados</h4>
+                            <p>Personal altamente capacitado y con certificaciones internacionales</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <h4>Respuesta Rápida</h4>
+                            <p>Atención 24/7 para emergencias y servicios urgentes</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <h4>Tecnología de Punta</h4>
+                            <p>Equipos de última generación para diagnósticos precisos</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <h4>Garantía de Calidad</h4>
+                            <p>Todos nuestros servicios incluyen garantía extendida</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Proyectos -->
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+            <p class="section-subtitle">Casos de éxito que demuestran nuestra experiencia y compromiso</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🏭</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Industria Textil</h3>
+                        <p>Modernización completa de sistema de producción</p>
+                        <span class="project-tag">Mantenimiento Preventivo</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🔩</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Planta Automotriz</h3>
+                        <p>Reparación de línea de ensamblaje crítica</p>
+                        <span class="project-tag">Reparación</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">⚡</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sector Energético</h3>
+                        <p>Optimización de procesos de mantenimiento</p>
+                        <span class="project-tag">Consultoría</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact-section">
+            <h2>Contáctanos</h2>
+            <p class="section-subtitle">Estamos listos para ayudarte con tus necesidades mecánicas</p>
+            
+            <div class="contact-container">
+                <!-- Formulario -->
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servicio">Servicio de Interés *</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="mantenimiento">Mantenimiento Preventivo</option>
+                                <option value="reparacion">Reparación de Maquinaria</option>
+                                <option value="consultoria">Consultoría Técnica</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto o necesidad..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <!-- Información de Contacto -->
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Santo Domingo, República Dominicana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+1 (809) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@mechanicalmachine.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div>
+                            <h4>Horario</h4>
+                            <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                            <p>Sáb: 8:00 AM - 2:00 PM</p>
+                            <p class="emergency">Emergencias 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Síguenos</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook">FB</a>
+                            <a href="#" aria-label="Instagram">IG</a>
+                            <a href="#" aria-label="LinkedIn">IN</a>
+                            <a href="#" aria-label="WhatsApp">WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Mechanical Machine Pouch. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Mechanical Machine Pouch</h4>
+                <p>Soluciones mecánicas de precisión para la industria moderna</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul>
+                    <li>Mantenimiento Preventivo</li>
+                    <li>Reparación de Maquinaria</li>
+                    <li>Consultoría Técnica</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mechanical Machine Pouch. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Script para menú móvil -->
+    <script>
+        // Menú hamburguesa
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer click en un link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Validación del formulario
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validación básica
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+            
+            if (!nombre || !email || !telefono || !servicio || !mensaje) {
+                alert('Por favor completa todos los campos requeridos.');
+                return;
+            }
+            
+            // Si todo está bien, enviar el formulario
+            alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+            form.reset();
+            
+            // Aquí puedes agregar la lógica real de envío (AJAX, etc.)
+        });
+    </script>
 
 </body>
 </html>
