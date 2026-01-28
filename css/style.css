@@ -1,34 +1,49 @@
 /* ===================================
+   MECHANICAL MACHINE POUCH - STYLESHEET
+   Hoja de estilos principal del sitio web
+   =================================== */
+
+/* ===================================
    1. VARIABLES Y COLORES DEL LOGO
+   Define los colores principales basados en el logo de la empresa
    =================================== */
 :root {
-  --primary-color: #2D4A1F;
-  --secondary-color: #8BC34A;
-  --accent-color: #7CB342;
-  --dark-text: #1A1A1A;
-  --bg-light: #f4f7f6;
-  --white: #FFFFFF;
-  --gray-light: #e0e0e0;
-  --gray-medium: #999;
+  /* Colores principales del branding */
+  --primary-color: #2D4A1F;        /* Verde oscuro principal */
+  --secondary-color: #8BC34A;      /* Verde claro secundario */
+  --accent-color: #7CB342;         /* Verde acento */
+  --dark-text: #1A1A1A;           /* Texto oscuro */
+  --bg-light: #f4f7f6;            /* Fondo claro */
+  --white: #FFFFFF;               /* Blanco puro */
+  --gray-light: #e0e0e0;          /* Gris claro */
+  --gray-medium: #999;            /* Gris medio */
+  
+  /* Sombras predefinidas */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 25px rgba(45, 74, 31, 0.2);
-  --font-titles: 'Montserrat', sans-serif;
-  --font-main: 'Inter', sans-serif;
+  
+  /* Fuentes */
+  --font-titles: 'Montserrat', sans-serif;  /* Para títulos */
+  --font-main: 'Inter', sans-serif;         /* Para texto general */
+  
+  /* Transiciones */
   --transition: all 0.3s ease;
 }
 
 /* ===================================
    2. RESET Y ESTILOS BASE
+   Resetea los estilos por defecto del navegador
    =================================== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  /* Incluye padding y border en el width */
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;  /* Scroll suave al hacer click en enlaces */
+  overflow-x: hidden;       /* Evita scroll horizontal */
 }
 
 body {
@@ -36,9 +51,12 @@ body {
   background-color: var(--bg-light);
   color: var(--dark-text);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden;  /* Evita que el contenido se salga horizontalmente */
+  width: 100%;
+  max-width: 100vw;    /* Nunca exceder el ancho de la ventana */
 }
 
+/* Estilos para todos los títulos */
 h1, h2, h3, h4 {
   font-family: var(--font-titles);
   text-transform: uppercase;
@@ -46,34 +64,65 @@ h1, h2, h3, h4 {
   line-height: 1.3;
 }
 
+/* Enlaces sin subrayado por defecto */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Imágenes responsive por defecto */
 img {
   max-width: 100%;
   height: auto;
+  display: block;  /* Elimina espacios debajo de las imágenes */
 }
 
+/* Botones heredan la fuente del body */
 button {
   font-family: inherit;
 }
 
 /* ===================================
-   3. HEADER Y NAVEGACIÓN
+   3. PROTECCIÓN DE IMÁGENES
+   Previene que los logos se puedan copiar o arrastrar
+   =================================== */
+.logo-protegido,
+.logo-nav,
+.logo-hero {
+  /* Previene arrastrar la imagen */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  
+  /* Previene selección */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Desactiva menú contextual (click derecho) */
+  pointer-events: auto;
+}
+
+/* ===================================
+   4. HEADER Y NAVEGACIÓN
+   Menú de navegación principal sticky
    =================================== */
 header {
   background: linear-gradient(135deg, var(--primary-color) 0%, #1B3A0F 100%);
   color: white;
-  position: sticky;
+  position: sticky;  /* Se queda pegado arriba al hacer scroll */
   top: 0;
-  z-index: 1000;
+  z-index: 1000;    /* Aparece sobre otros elementos */
   box-shadow: var(--shadow-md);
+  width: 100%;
 }
 
 nav {
   padding: 1rem 3rem;
+  width: 100%;
 }
 
 .nav-container {
@@ -82,19 +131,22 @@ nav {
   justify-content: space-between;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* Logo y nombre de la marca */
 .logo-section {
   display: flex;
   align-items: center;
   gap: 1rem;
   z-index: 1001;
+  flex-shrink: 0;  /* No se reduce en pantallas pequeñas */
 }
 
 .logo-nav {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 50%;      /* Hace el logo circular */
   object-fit: cover;
   background: var(--white);
   padding: 5px;
@@ -103,7 +155,7 @@ nav {
 }
 
 .logo-nav:hover {
-  transform: scale(1.1);
+  transform: scale(1.1);   /* Crece un 10% al pasar el mouse */
   box-shadow: 0 4px 12px rgba(139, 195, 74, 0.4);
 }
 
@@ -113,11 +165,15 @@ nav {
   font-weight: 600;
   font-family: var(--font-titles);
   letter-spacing: 0.5px;
+  white-space: nowrap;  /* Evita que el texto se rompa en varias líneas */
 }
 
-/* Menú hamburguesa */
+/* ===================================
+   5. MENÚ HAMBURGUESA (MÓVIL)
+   Botón de 3 líneas para menú móvil
+   =================================== */
 .menu-toggle {
-  display: none;
+  display: none;           /* Oculto por defecto (desktop) */
   flex-direction: column;
   gap: 5px;
   background: none;
@@ -127,6 +183,7 @@ nav {
   z-index: 1001;
 }
 
+/* Las 3 líneas del menú hamburguesa */
 .menu-toggle span {
   width: 30px;
   height: 3px;
@@ -135,18 +192,23 @@ nav {
   border-radius: 3px;
 }
 
+/* Animación cuando el menú está abierto (forma X) */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
 }
 
 .menu-toggle.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0;  /* La línea del medio desaparece */
 }
 
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(8px, -8px);
 }
 
+/* ===================================
+   6. ENLACES DE NAVEGACIÓN
+   Menú principal del sitio
+   =================================== */
 .nav-links {
   display: flex;
   list-style: none;
@@ -163,6 +225,7 @@ nav {
   cursor: pointer;
 }
 
+/* Línea animada debajo de los enlaces */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -178,12 +241,14 @@ nav {
   color: var(--secondary-color);
 }
 
+/* La línea crece al pasar el mouse */
 .nav-links a:hover::after {
   width: 100%;
 }
 
 /* ===================================
-   4. SECCIÓN HERO
+   7. SECCIÓN HERO (CABECERA PRINCIPAL)
+   Primera sección que ven los visitantes
    =================================== */
 .hero {
   text-align: center;
@@ -191,8 +256,10 @@ nav {
   background: linear-gradient(135deg, var(--bg-light) 0%, #e8f5e9 100%);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
+/* Círculo decorativo de fondo */
 .hero::before {
   content: '';
   position: absolute;
@@ -202,6 +269,7 @@ nav {
   height: 600px;
   background: radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, transparent 70%);
   border-radius: 50%;
+  pointer-events: none;  /* No interfiere con clicks */
 }
 
 .logo-hero {
@@ -209,7 +277,7 @@ nav {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   background: white;
   padding: 15px;
   box-shadow: var(--shadow-lg);
@@ -237,6 +305,7 @@ nav {
   z-index: 1;
 }
 
+/* Botón principal de llamada a la acción */
 .btn-primary {
   display: inline-block;
   background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
@@ -255,17 +324,19 @@ nav {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px);  /* Se eleva al pasar el mouse */
   box-shadow: 0 8px 20px rgba(124, 179, 66, 0.4);
 }
 
 /* ===================================
-   5. ESTILOS GENERALES DE SECCIONES
+   8. ESTILOS GENERALES DE SECCIONES
+   Aplica a todas las secciones principales
    =================================== */
 section {
   padding: 80px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 section h2 {
@@ -277,6 +348,7 @@ section h2 {
   padding-bottom: 1rem;
 }
 
+/* Línea decorativa debajo de los títulos */
 section h2::after {
   content: '';
   position: absolute;
@@ -298,7 +370,8 @@ section h2::after {
 }
 
 /* ===================================
-   6. SECCIÓN SERVICIOS
+   9. SECCIÓN SERVICIOS
+   Muestra los 3 servicios principales
    =================================== */
 #servicios {
   background-color: var(--white);
@@ -306,9 +379,10 @@ section h2::after {
 
 .servicios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Responsive automático */
   gap: 2rem;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .service-card {
@@ -321,7 +395,7 @@ section h2::after {
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px);  /* Se eleva al pasar el mouse */
   box-shadow: 0 8px 20px rgba(124, 179, 66, 0.3);
   border-left-color: var(--secondary-color);
 }
@@ -359,7 +433,8 @@ section h2::after {
 }
 
 /* ===================================
-   7. SECCIÓN NOSOTROS
+   10. SECCIÓN NOSOTROS
+   Información sobre la empresa
    =================================== */
 .about-section {
   background: linear-gradient(135deg, #f9fafb 0%, #e8f5e9 100%);
@@ -367,9 +442,10 @@ section h2::after {
 
 .about-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 4rem;
   align-items: start;
+  width: 100%;
 }
 
 .about-content h2 {
@@ -389,9 +465,10 @@ section h2::after {
   line-height: 1.8;
 }
 
+/* Estadísticas (10+ años, 500+ proyectos, etc.) */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -413,6 +490,7 @@ section h2::after {
   margin-top: 0.5rem;
 }
 
+/* Características de la empresa */
 .about-features {
   display: flex;
   flex-direction: column;
@@ -431,7 +509,7 @@ section h2::after {
 }
 
 .feature-item:hover {
-  transform: translateX(10px);
+  transform: translateX(10px);  /* Se desliza a la derecha */
   box-shadow: var(--shadow-md);
 }
 
@@ -460,7 +538,8 @@ section h2::after {
 }
 
 /* ===================================
-   8. SECCIÓN PROYECTOS
+   11. SECCIÓN PROYECTOS
+   Muestra casos de éxito
    =================================== */
 #proyectos {
   background-color: var(--white);
@@ -468,9 +547,10 @@ section h2::after {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .project-card {
@@ -524,7 +604,8 @@ section h2::after {
 }
 
 /* ===================================
-   9. SECCIÓN CONTACTO (Info visible)
+   12. SECCIÓN CONTACTO (Información visible)
+   Tarjetas con datos de contacto
    =================================== */
 .contact-info-section {
   background: linear-gradient(135deg, #f9fafb 0%, #e8f5e9 100%);
@@ -532,9 +613,10 @@ section h2::after {
 
 .contact-info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .info-card {
@@ -582,7 +664,78 @@ section h2::after {
   margin-top: 0.5rem;
 }
 
-/* Redes sociales grandes */
+/* ===================================
+   13. BOTÓN GRANDE DE WHATSAPP
+   Sección destacada para contacto directo
+   =================================== */
+.whatsapp-cta-section {
+  text-align: center;
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 20px;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-cta-section h3 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.whatsapp-cta-section > p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-whatsapp-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  color: #128C7E;
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn-whatsapp-large:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-icon {
+  font-size: 2.5rem;
+}
+
+.whatsapp-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.whatsapp-text strong {
+  font-size: 1.3rem;
+  display: block;
+}
+
+.whatsapp-text small {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #666;
+}
+
+/* ===================================
+   14. REDES SOCIALES
+   Íconos grandes de redes sociales
+   =================================== */
 .social-links-section {
   margin-top: 4rem;
   text-align: center;
@@ -635,7 +788,8 @@ section h2::after {
 }
 
 /* ===================================
-   10. BOTÓN FLOTANTE
+   15. BOTÓN FLOTANTE DE WHATSAPP
+   Botón de contacto que siempre está visible (esquina inferior derecha)
    =================================== */
 .btn-float {
   position: fixed;
@@ -643,7 +797,7 @@ section h2::after {
   right: 30px;
   width: 65px;
   height: 65px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: white;
   border: none;
   border-radius: 50%;
@@ -651,25 +805,26 @@ section h2::after {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  box-shadow: 0 6px 20px rgba(124, 179, 66, 0.5);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
   z-index: 998;
   transition: var(--transition);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-float:hover {
   transform: scale(1.15) translateY(-5px);
-  box-shadow: 0 10px 30px rgba(124, 179, 66, 0.7);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7);
 }
 
-/* Animación de pulso */
+/* Animación de pulso que llama la atención */
 .btn-float::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: var(--accent-color);
+  background: #25D366;
   opacity: 0;
   animation: pulse 2s infinite;
 }
@@ -686,7 +841,8 @@ section h2::after {
 }
 
 /* ===================================
-   11. MODAL
+   16. FOOTER
+   Formulario de contacto que aparece sobre la página
    =================================== */
 .modal-overlay {
   position: fixed;
@@ -699,8 +855,9 @@ section h2::after {
   justify-content: center;
   align-items: center;
   z-index: 1002;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);  /* Efecto de desenfoque */
   animation: fadeIn 0.3s ease;
+  padding: 20px;
 }
 
 .modal-overlay.active {
@@ -712,14 +869,15 @@ section h2::after {
   padding: 2.5rem;
   border-radius: 20px;
   max-width: 600px;
-  width: 90%;
+  width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow-y: auto;  /* Scroll si el contenido es muy largo */
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   animation: slideUp 0.4s ease;
 }
 
+/* Botón X para cerrar el modal */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -742,7 +900,7 @@ section h2::after {
 .modal-close:hover {
   background: var(--gray-light);
   color: var(--primary-color);
-  transform: rotate(90deg);
+  transform: rotate(90deg);  /* Gira al pasar el mouse */
 }
 
 .modal-content h3 {
@@ -758,11 +916,15 @@ section h2::after {
   font-size: 1rem;
 }
 
-/* Estilos del formulario en el modal */
+/* ===================================
+   16. FORMULARIO
+   Estilos del formulario de contacto
+   =================================== */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
+/* Para poner dos campos uno al lado del otro */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -789,6 +951,7 @@ section h2::after {
   transition: var(--transition);
 }
 
+/* Efecto al hacer focus en los campos */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -798,10 +961,11 @@ section h2::after {
 }
 
 .form-group textarea {
-  resize: vertical;
+  resize: vertical;  /* Solo se puede cambiar el tamaño verticalmente */
   min-height: 120px;
 }
 
+/* Botón de enviar formulario */
 .btn-submit {
   width: 100%;
   background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
@@ -828,20 +992,22 @@ section h2::after {
 }
 
 /* ===================================
-   12. FOOTER
+   17. FOOTER
+   Pie de página del sitio
    =================================== */
 footer {
   background: linear-gradient(135deg, var(--primary-color) 0%, #1B3A0F 100%);
   color: white;
   padding: 3rem 2rem 1.5rem;
   box-shadow: 0 -2px 15px rgba(45, 74, 31, 0.2);
+  width: 100%;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -869,6 +1035,7 @@ footer {
 .footer-section ul li a {
   color: rgba(255, 255, 255, 0.8);
   transition: var(--transition);
+  display: inline-block;
 }
 
 .footer-section ul li a:hover {
@@ -889,7 +1056,8 @@ footer {
 }
 
 /* ===================================
-   13. ANIMACIONES
+   18. ANIMACIONES
+   Efectos de animación al cargar la página
    =================================== */
 @keyframes slideDown {
   from {
@@ -923,34 +1091,43 @@ footer {
 }
 
 /* ===================================
-   14. RESPONSIVE DESIGN
+   19. RESPONSIVE DESIGN - TABLETS
+   Ajustes para tablets (pantallas medianas)
    =================================== */
-
-/* Tablets */
 @media (max-width: 1024px) {
   .about-container {
     gap: 3rem;
   }
   
   .contact-info-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  section {
+    padding: 60px 20px;
   }
 }
 
-/* Mobile */
+/* ===================================
+   20. RESPONSIVE DESIGN - MÓVILES
+   Ajustes para smartphones
+   =================================== */
 @media (max-width: 768px) {
+  /* Navegación móvil */
   nav {
     padding: 1rem 1.5rem;
   }
   
+  /* Mostrar botón hamburguesa */
   .menu-toggle {
     display: flex;
   }
   
+  /* Menú lateral deslizable */
   .nav-links {
     position: fixed;
     top: 80px;
-    right: -100%;
+    right: -100%;  /* Oculto por defecto */
     flex-direction: column;
     background: var(--primary-color);
     width: 100%;
@@ -960,20 +1137,25 @@ footer {
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease;
     height: calc(100vh - 80px);
+    overflow-y: auto;
   }
   
+  /* Cuando el menú está activo, se desliza desde la derecha */
   .nav-links.active {
     right: 0;
   }
   
+  /* Quitar línea animada en móvil */
   .nav-links a::after {
     display: none;
   }
   
+  /* Reducir tamaño del nombre de marca */
   .brand-name {
     font-size: 0.9rem;
   }
   
+  /* Hero más compacto */
   .hero {
     padding: 60px 20px;
   }
@@ -991,19 +1173,23 @@ footer {
     height: 120px;
   }
   
+  /* Secciones más compactas */
   section {
-    padding: 60px 20px;
+    padding: 50px 15px;
   }
   
   section h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
+  /* Grids en una sola columna */
   .servicios-grid,
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
+  /* Estadísticas en columna */
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -1014,24 +1200,58 @@ footer {
     gap: 2rem;
   }
   
+  /* Formulario en una columna */
   .form-row {
     grid-template-columns: 1fr;
   }
   
+  /* Footer en columna */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
+  /* Modal más pequeño */
   .modal-content {
     padding: 2rem 1.5rem;
     border-radius: 15px;
+    max-height: 85vh;
   }
   
   .modal-content h3 {
     font-size: 1.6rem;
   }
   
+  /* Botón grande de WhatsApp responsive */
+  .whatsapp-cta-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+  
+  .whatsapp-cta-section h3 {
+    font-size: 1.6rem;
+  }
+  
+  .btn-whatsapp-large {
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .whatsapp-text {
+    align-items: center;
+  }
+  
+  .whatsapp-text strong {
+    font-size: 1.1rem;
+  }
+  
+  .whatsapp-icon {
+    font-size: 2rem;
+  }
+  
+  /* Botón flotante más pequeño */
   .btn-float {
     width: 60px;
     height: 60px;
@@ -1040,26 +1260,40 @@ footer {
     font-size: 1.7rem;
   }
   
+  /* Tarjetas de contacto en una columna */
   .contact-info-grid {
     grid-template-columns: 1fr;
   }
   
+  /* Redes sociales más compactas */
   .social-icons-large {
     gap: 1.5rem;
   }
+  
+  .social-icons-large a span {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+  }
 }
 
-/* Small Mobile */
+/* ===================================
+   21. RESPONSIVE DESIGN - MÓVILES PEQUEÑOS
+   Ajustes para smartphones muy pequeños
+   =================================== */
 @media (max-width: 480px) {
+  /* Logo más pequeño */
   .logo-nav {
     width: 50px;
     height: 50px;
   }
   
+  /* Ocultar nombre de marca en pantallas muy pequeñas */
   .brand-name {
-    display: none;
+    font-size: 0.75rem;
   }
   
+  /* Títulos más pequeños */
   .hero h1 {
     font-size: 1.7rem;
   }
@@ -1070,23 +1304,164 @@ footer {
   }
   
   section h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
   
+  /* Modal ocupa casi toda la pantalla */
   .modal-content {
     padding: 1.5rem;
-    max-height: 95vh;
+    max-height: 90vh;
+    margin: 10px;
   }
   
+  .modal-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  /* Botón flotante aún más pequeño */
   .btn-float {
     width: 55px;
     height: 55px;
     font-size: 1.5rem;
+    bottom: 15px;
+    right: 15px;
   }
   
+  /* Redes sociales compactas */
   .social-icons-large a span {
-    width: 60px;
-    height: 60px;
-    font-size: 1.3rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.2rem;
+  }
+  
+  /* Padding reducido en tarjetas */
+  .service-card,
+  .info-card {
+    padding: 1.5rem;
+  }
+  
+  /* Footer más compacto */
+  footer {
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+/* ===================================
+   22. MEJORAS DE ACCESIBILIDAD
+   Estilos para mejorar la usabilidad
+   =================================== */
+/* Enfoque visible para navegación por teclado */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px;  /* Previene auto-zoom en iOS */
+  }
+}
+
+/* Smooth scroll en toda la página */
+* {
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   23. BOTÓN DE WHATSAPP CTA
+   Botón grande de llamada a la acción de WhatsApp
+   =================================== */
+.whatsapp-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f9fafb 0%, #e8f5e9 100%);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.whatsapp-cta h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.whatsapp-cta p {
+  color: var(--gray-medium);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+  font-size: 1.8rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive WhatsApp CTA */
+@media (max-width: 768px) {
+  .whatsapp-cta {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .whatsapp-cta h3 {
+    font-size: 1.6rem;
+  }
+  
+  .btn-whatsapp {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-cta h3 {
+    font-size: 1.4rem;
+  }
+  
+  .btn-whatsapp {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.5rem;
   }
 }

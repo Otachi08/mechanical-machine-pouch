@@ -1,192 +1,194 @@
-# 🔧 Mechanical Machine Pouch
+# Mechanical Machine Pouch - Sitio Web
 
-![Mechanical Machine Pouch Logo](img/logo2.png)
-
-## 📋 Descripción
-
-Sitio web corporativo para **Mechanical Machine Pouch**, empresa especializada en soluciones mecánicas de alta precisión para la industria. Ofrecemos servicios de mantenimiento preventivo, reparación de maquinaria industrial y consultoría técnica en República Dominicana.
-
-## ✨ Características
-
-- 🎨 **Diseño Moderno y Responsive** - Adaptado a todos los dispositivos (desktop, tablet, mobile)
-- 📱 **Menú Hamburguesa** - Navegación optimizada para móviles
-- 💬 **Formulario de Contacto Funcional** - Integrado con Formspree para recibir mensajes
-- 🎯 **Modal Interactivo** - Formulario que se abre en ventana emergente
-- 🔘 **Botón Flotante** - Acceso rápido al formulario de contacto desde cualquier sección
-- ⚡ **Animaciones Suaves** - Transiciones y efectos para mejor experiencia de usuario
-- 🎯 **SEO Optimizado** - Meta tags para mejor posicionamiento en buscadores
-- 🌐 **Redes Sociales** - Enlaces integrados a todas las plataformas
-
-## 🛠️ Tecnologías Utilizadas
-
-- **HTML5** - Estructura semántica
-- **CSS3** - Diseño y animaciones
-  - Flexbox y Grid para layouts
-  - Animaciones CSS personalizadas
-  - Media queries para responsive design
-- **JavaScript Vanilla** - Interactividad sin frameworks
-  - Menú hamburguesa
-  - Modal del formulario
-  - Validación de formulario
-  - Smooth scroll
-- **Formspree** - Servicio de envío de formularios
-
-## 📁 Estructura del Proyecto
+## 📁 Estructura de Archivos
 
 ```
-mechanical-machine-pouch/
+proyecto/
 │
-├── index.html              # Página principal
+├── index.html          # Página principal (HTML limpio sin JavaScript)
+│
 ├── css/
-│   └── style.css          # Estilos principales
-├── img/
-│   └── logo2.png          # Logo de la empresa
-├── .gitignore             # Archivos ignorados por Git
-└── README.md              # Este archivo
+│   └── style.css      # Hoja de estilos (totalmente responsive y comentada)
+│
+├── js/
+│   └── main.js        # JavaScript separado (toda la funcionalidad)
+│
+└── img/               # Carpeta para imágenes (crear esta carpeta)
+    └── logo2.png      # Logo de la empresa
 ```
 
-## 🚀 Instalación y Uso
+## 🚀 Instrucciones de Uso
 
-### Clonar el repositorio
+### 1. Configuración Inicial
 
-```bash
-git clone https://github.com/TU_USUARIO/mechanical-machine-pouch.git
-cd mechanical-machine-pouch
+1. Crea una carpeta `img` en la raíz del proyecto
+2. Coloca tu logo como `logo2.png` dentro de la carpeta `img`
+3. Abre `index.html` en tu navegador
+
+### 2. Estructura de Carpetas Requerida
+
+```
+tu-proyecto/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── img/
+    └── logo2.png
 ```
 
-### Abrir el proyecto
+## ✨ Características Implementadas
 
-Simplemente abre el archivo `index.html` en tu navegador preferido, o usa un servidor local:
+### 🔒 Protección de Imágenes
+- Los logos NO se pueden arrastrar
+- Click derecho deshabilitado en los logos
+- No se pueden copiar fácilmente
 
-**Opción 1: Abrir directamente**
-```bash
-# En Mac
-open index.html
+### 📱 Diseño Responsive
+- **Desktop**: Diseño completo con todas las características
+- **Tablet (1024px)**: Ajustes para pantallas medianas
+- **Móvil (768px)**: Menú hamburguesa, diseño de una columna
+- **Móvil pequeño (480px)**: Optimizado para pantallas muy pequeñas
 
-# En Linux
-xdg-open index.html
+### 🎨 Mejoras Visuales
+- Animaciones suaves al cargar
+- Efectos hover en todos los elementos interactivos
+- Transiciones fluidas
+- Gradientes modernos
 
-# En Windows
-start index.html
+### 📋 Formulario de Contacto
+- Validación en tiempo real
+- Envío vía AJAX (no recarga la página)
+- Mensajes de éxito/error
+- Integrado con Formspree
+
+### 🎯 Funcionalidades JavaScript
+- Menú hamburguesa para móviles
+- Modal de contacto
+- Smooth scroll
+- Protección de imágenes
+- Animaciones al scroll
+- Header sticky con efectos
+
+## 🔧 Personalización
+
+### Cambiar Colores
+Edita las variables en `css/style.css` (líneas 1-20):
+
+```css
+:root {
+  --primary-color: #2D4A1F;      /* Verde oscuro */
+  --secondary-color: #8BC34A;    /* Verde claro */
+  --accent-color: #7CB342;       /* Verde acento */
+  /* ... más colores */
+}
 ```
 
-**Opción 2: Con Live Server (VSCode)**
-- Instala la extensión "Live Server" en VSCode
-- Click derecho en `index.html` → "Open with Live Server"
-
-**Opción 3: Con Python**
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# Luego abre: http://localhost:8000
-```
-
-## ⚙️ Configuración
-
-### Configurar Formspree (Formulario de Contacto)
-
-1. Crea una cuenta en [Formspree.io](https://formspree.io)
-2. Crea un nuevo formulario y obtén tu ID
-3. En `index.html`, busca la línea 324 y reemplaza el ID:
+### Cambiar Información de Contacto
+Edita el HTML en `index.html` en la sección de contacto:
 
 ```html
-<form id="contactForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+<!-- Busca la sección con id="contacto" -->
+<section id="contacto" class="contact-info-section">
+  <!-- Aquí están los datos de contacto -->
+</section>
 ```
 
-### Actualizar Redes Sociales
-
-En `index.html`, busca las líneas 256-259 y actualiza tus enlaces:
+### Cambiar Enlaces de Redes Sociales
+Edita los enlaces en `index.html`:
 
 ```html
 <a href="https://facebook.com/TU_USUARIO" target="_blank">
 <a href="https://instagram.com/TU_USUARIO" target="_blank">
 <a href="https://linkedin.com/company/TU_EMPRESA" target="_blank">
-<a href="https://wa.me/18091234567" target="_blank">
+<a href="https://wa.me/18098153285" target="_blank">
 ```
 
-### Personalizar Información de Contacto
+### Cambiar Endpoint del Formulario
+En `index.html`, busca:
 
-Actualiza los datos de contacto en las líneas 230-250:
-- Dirección
-- Teléfono
-- Email
-- Horarios
+```html
+<form id="contactForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+```
+
+## 📱 Puntos de Quiebre (Breakpoints)
+
+- **Desktop**: > 1024px
+- **Tablet**: 768px - 1024px
+- **Móvil**: 480px - 768px
+- **Móvil pequeño**: < 480px
 
 ## 🎨 Paleta de Colores
 
-El diseño está basado en los colores del logo:
+| Color | Código | Uso |
+|-------|--------|-----|
+| Verde Oscuro | `#2D4A1F` | Color principal, headers, títulos |
+| Verde Claro | `#8BC34A` | Color secundario, acentos |
+| Verde Acento | `#7CB342` | Botones, hover effects |
+| Blanco | `#FFFFFF` | Fondos, texto en áreas oscuras |
+| Gris Claro | `#e0e0e0` | Bordes, separadores |
 
-```css
---primary-color: #2D4A1F;      /* Verde oscuro */
---secondary-color: #8BC34A;    /* Verde claro */
---accent-color: #7CB342;       /* Verde lima */
---dark-text: #1A1A1A;          /* Negro */
---bg-light: #f4f7f6;           /* Fondo gris claro */
+## 📝 Comentarios en el Código
+
+### CSS (style.css)
+- **Sección 1-2**: Variables y reset
+- **Sección 3**: Protección de imágenes
+- **Sección 4-6**: Navegación y header
+- **Sección 7**: Hero (cabecera)
+- **Sección 8-13**: Secciones del contenido
+- **Sección 14-17**: Footer y botones
+- **Sección 18**: Animaciones
+- **Sección 19-21**: Media queries (responsive)
+- **Sección 22**: Accesibilidad
+
+### JavaScript (main.js)
+- **Sección 1**: Protección de imágenes
+- **Sección 2**: Menú hamburguesa
+- **Sección 3**: Smooth scroll
+- **Sección 4**: Modal del formulario
+- **Sección 5**: Validación de formulario
+- **Sección 6**: Animaciones scroll
+- **Sección 7**: Header sticky
+- **Sección 8**: Prevenir zoom iOS
+- **Sección 9-14**: Funcionalidades adicionales
+
+## 🐛 Solución de Problemas
+
+### El menú no se abre en móvil
+- Verifica que `main.js` esté correctamente vinculado
+- Abre la consola del navegador (F12) y busca errores
+
+### Las imágenes no se ven
+- Verifica que la carpeta `img` exista
+- Verifica que el nombre del archivo sea exactamente `logo2.png`
+- Revisa las rutas en el HTML
+
+### El formulario no envía
+- Verifica que el endpoint de Formspree sea correcto
+- Verifica tu conexión a internet
+- Revisa la consola del navegador por errores
+
+### El diseño se sale en móvil
+- Asegúrate de tener la etiqueta viewport en el HTML:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
-## 📱 Responsive Design
+## 📞 Soporte
 
-El sitio está optimizado para:
-- 📱 **Mobile**: < 480px
-- 📱 **Tablet**: 481px - 768px
-- 💻 **Desktop**: 769px - 1024px
-- 🖥️ **Large Desktop**: > 1024px
-
-## 🌟 Funcionalidades Destacadas
-
-### Formulario de Contacto Modal
-- Se abre con múltiples botones (flotante, CTA, servicios, menú)
-- Validación en tiempo real
-- Envío sin recargar página (AJAX)
-- Mensajes de éxito/error
-- Se cierra con ESC, click fuera o botón X
-
-### Animaciones
-- Fade in del logo hero
-- Slide down de títulos
-- Hover effects en tarjetas
-- Pulso en botón flotante
-- Transiciones suaves en todos los elementos
-
-## 📊 SEO y Meta Tags
-
-El sitio incluye:
-- ✅ Meta description optimizada
-- ✅ Open Graph tags (Facebook, LinkedIn)
-- ✅ Twitter Cards
-- ✅ Favicon configurado
-- ✅ Estructura semántica HTML5
-
-## 🔄 Actualizaciones Futuras
-
-- [ ] Blog de noticias de la industria
-- [ ] Galería de proyectos completos
-- [ ] Sistema de cotizaciones en línea
-- [ ] Chat en vivo
-- [ ] Multiidioma (Español/Inglés)
-- [ ] Portal de clientes
-
-## 👨‍💻 Autor
-
-**Otachi08**
-- GitHub: [@Otachi08](https://github.com/Otachi08)
+Para más información sobre el diseño o personalización:
+- Email: info@mechanicalmachine.com
+- Teléfono: +1 (809) 815-3285
 
 ## 📄 Licencia
 
-Este proyecto es privado y pertenece a **Mechanical Machine Pouch**. Todos los derechos reservados © 2026.
-
-## 🤝 Contribuciones
-
-Este es un proyecto privado. Para consultas o sugerencias, contactar a través del formulario en el sitio web.
-
-## 📞 Contacto
-
-- **Email**: info@mechanicalmachine.com
-- **Teléfono**: +1 (809) 123-4567
-- **Ubicación**: Santo Domingo, República Dominicana
-- **Website**: [En desarrollo]
+© 2026 Mechanical Machine Pouch. Todos los derechos reservados.
 
 ---
 
-⭐ **Desarrollado con dedicación para la excelencia industrial** ⭐
+**Nota**: Este sitio web está optimizado para:
+- ✅ Chrome, Firefox, Safari, Edge (últimas versiones)
+- ✅ iOS 12+
+- ✅ Android 8+
+- ✅ Accesibilidad (WCAG 2.1 AA)
